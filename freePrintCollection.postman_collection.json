@@ -1,0 +1,1023 @@
+{
+	"info": {
+		"_postman_id": "2751677c-c83b-43e3-8eef-a494a77f2eea",
+		"name": "freePrintCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation RefreshToken($token: String!) {\r\n  refreshToken(input: {token: $token}) {\r\n    token,\r\n    payload,\r\n  }\r\n}",
+								"variables": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjAxMjE2NzczLCJvcmlnSWF0IjoxNjAxMjE2NDczfQ.cKvkTgwyX4ll1bnb-u0tW2l9BCd6t0aMZJ7EsppdNgk\"}"
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/apis/graphql/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"apis",
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation VerifyToken($token: String!) {\r\n  verifyToken(input: {token: $token}) {\r\n    payload,\r\n  }\r\n}",
+								"variables": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjAxMjE2NzczLCJvcmlnSWF0IjoxNjAxMjE2NDczfQ.cKvkTgwyX4ll1bnb-u0tW2l9BCd6t0aMZJ7EsppdNgk\"}"
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/apis/graphql/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"apis",
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation TokenAuth($username: String!, $password: String!) {\n  tokenAuth(input: {username: $username, password: $password}) {\n    token\n    payload\n    user {\n        id\n    }\n  }\n}",
+								"variables": "{\"username\":\"admin\",\"password\":\"admin@123\"}"
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/apis/graphql/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"apis",
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedback",
+			"item": [
+				{
+					"name": "getFeedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\n    getOrderFeedbacks{        \n        orderno\n        rating\n        feedback        \n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addFeedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\n    addFeedback(input:{\n        orderno:\"101\"\n        rating:\"4\"\n        feedback:\"Feeback details 6\"       \n    }){\n        details{          \n            orderno\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contactus",
+			"item": [
+				{
+					"name": "getUsersContactus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\n    getContactus(email:\"krishan2025@gmail.com\"){        \n        edges{\n            node{   \n                    id\n                    email\n                    enquiryabout\n                    description           \n               }\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContactusByEmails",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\n    ContactusByEmail{        \n        edges{\n            node{\n                email\n                enquiryabout\n                description \n            }\n        }       \n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addContactus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\n    addContactus(input:{\n        fullname:\"Krishan Kumar\"\n        email:\"krishan2025@gmail.com\"\n        enquiryabout:\"enquiryabout details\"\n        description:\"description\"\n    }){\n        details{          \n            email\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "GetUserAddress",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\n    getUserAddress(userid:\"VXNlclR5cGU6MQ==\"){\n        edges{\n            node{\n                id\n                countryid\n                city\n                pincode\n                fullname\n                phonenumber\n                addressline1\n                addressline2\n                instructions\n                userid{\n                    id\n                    username\n                }                \n            }\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\n    addAddress(input:{\n        userid:\"VXNlclR5cGU6MQ==\"\n        countryid:\"India\"\n        city:\"Noida\"\n        pincode:\"201301\"\n        fullname:\"Raj Paliwal\"\n        phonenumber:\"1234567890\"\n        addressline1:\"Demo Line 1\"\n        addressline2:\"Demo line 2\"\n        instructions:\"Demo Instructions\"\n    }){\n        details{\n            id\n            countryid\n            city\n            pincode\n            fullname\n            phonenumber\n            addressline1\n            addressline2\n            instructions\n            userid{\n                id\n                username\n            } \n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "GetCart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserCart(userid:\"VXNlclR5cGU6MQ==\"){\r\n        edges{\r\n            node{\r\n                id\r\n                status\r\n                userid{\r\n                    id\r\n                    username\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCartItem",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserCartItem(cartid:\"Q2FydFR5cGU6Mg==\"){\r\n        edges{\r\n            node{\r\n                cartid{\r\n                    id\r\n                    status \r\n                }\r\n                productid{\r\n                    producttype\r\n                    unitprice\r\n                    sizeType{\r\n                        id\r\n                        name\r\n                    }\r\n                    paperType{\r\n                        id\r\n                        name\r\n                    }\r\n                }\r\n                photoid{\r\n                    edges{\r\n                        node{\r\n                            id\r\n                            photofile\r\n                            imageType\r\n                        }\r\n                    }\r\n                }\r\n                documentid{\r\n                    edges{\r\n                        node{\r\n                            id\r\n                            docfile\r\n                            docType\r\n                        }\r\n                    }\r\n                }\r\n             \r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddCartMutation {\r\n    addCart(input:{\r\n        userid:\"VXNlclR5cGU6MQ==\"\r\n        status:\"1\"\r\n        \r\n    }){\r\n        details{\r\n            id\r\n            userid{\r\n                    id\r\n                    username\r\n                }\r\n            status\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\r\n    updateCart(\r\n        id:\"Q2FydFR5cGU6NA==\"\r\n        userid:\"VXNlclR5cGU6MQ==\" \r\n    )\r\n    {\r\n        cartOwner{\r\n             id\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCartItem",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddCartItemMutation {\r\n    addCartItem(input:{\r\n        cartid:\"Q2FydFR5cGU6NA==\"\r\n        productid:\"UHJvZHVjdFR5cGU6MQ==\"\r\n        photoid:\"UGhvdG9zVHlwZTox\"\r\n        documentid:\"RG9jdW1uZXRzVHlwZTox\"\r\n    }){\r\n        details{\r\n           id\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation  {\r\n    deleteCart(\r\n        id: \"Q2FydFR5cGU6NA==\"\r\n    ){\r\n        ok\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCartItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation  {\r\n    deleteCartItem(\r\n        id: \"Q2FydEl0ZW1UeXBlOjU=\"\r\n    ){\r\n        ok\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delivery",
+			"item": [
+				{
+					"name": "UpdateDelivery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation  {\r\n    updateDelivery(\r\n        id:\"RGVsaXZlcnlUeXBlOjE=\"\r\n        trackingid:\"61\"\r\n        userid:\"VXNlclR5cGU6MQ==\"\r\n        courierservice:\"pratiksha\"\r\n        status:\"W2\"\r\n    ){\r\n        deliveryOwner{\r\n            id\r\n            trackingid\r\n            courierservice\r\n            status\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETUSERDELIVERY",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserDelivery(userid:\"VXNlclR5cGU6MQ==\"){\r\n        edges{\r\n            node{\r\n                id\r\n                trackingid\r\n                courierservice\r\n                status\r\n                userid{\r\n                    id\r\n                    username\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddDelivery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddDeliveryMutation {\r\n    addDelivery(input:{\r\n        trackingid:\"7\"\r\n        userid:\"VXNlclR5cGU6MQ==\"\r\n        courierservice:\"RajPaliwal\"\r\n        status:\"W2\"\r\n    }){\r\n        details{\r\n            id\r\n            trackingid\r\n            courierservice\r\n            status\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "documents",
+			"item": [
+				{
+					"name": "UploadDocument",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/forrm-data",
+								"type": "text"
+							},
+							{
+								"key": "boundary",
+								"value": "----GraphQlFileUpload",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "query",
+									"value": "mutation ($file: Upload) { myUpload(fileIn: $file) { ok }}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "docType",
+									"value": "photo",
+									"type": "text"
+								},
+								{
+									"key": "docfile",
+									"type": "file",
+									"src": "/C:/Users/krishan/Pictures/Download/a.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://34.123.110.47/uploadFile/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"123",
+								"110",
+								"47"
+							],
+							"path": [
+								"uploadFile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDocuments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserphoto(docType:\"doc\"){\r\n        edges{\r\n            node{\r\n                id\r\n\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "GetOrders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserOrders{\r\n        edges{\r\n            node{\r\n                id\r\n                invoice\r\n                orderstatus\r\n                instructions\r\n                userid{\r\n                    id\r\n                    username\r\n                }\r\n                addressid{\r\n                    id\r\n                    fullname\r\n                    addressline1\r\n                    countryid\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOrders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation  {\r\n    updateOrders(\r\n        id:\"T3JkZXJzVHlwZTox\"\r\n        userid:\"VXNlclR5cGU6MQ==\"\r\n        addressid:\"QWRkcmVzc1R5cGU6MQ==\"\r\n        invoice:\"pratiksha\"\r\n        orderstatus:\"Modifies\"\r\n        instructions:\"MO\"\r\n    ){\r\n        ordersOwner{\r\n             id\r\n        invoice\r\n        orderstatus\r\n        instructions\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddOrders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddOrdersMutation {\r\n    addOrders(input:{\r\n        userid:\"VXNlclR5cGU6MQ==\"\r\n        addressid:\"QWRkcmVzc1R5cGU6MQ==\"\r\n        invoice:\"W2\"\r\n        orderstatus:\"Created\"\r\n        instructions:\"vvvvv\"\r\n    }){\r\n        details{\r\n            id\r\n            orderstatus\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "photos",
+			"item": [
+				{
+					"name": "UploadPhoto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photofile_1",
+									"type": "file",
+									"src": "/C:/Users/krishan/Pictures/Download/553439.jpg"
+								},
+								{
+									"key": "imagetype",
+									"value": "Photo",
+									"type": "text"
+								},
+								{
+									"key": "productlist",
+									"value": "1,2",
+									"type": "text"
+								},
+								{
+									"key": "photofile_4",
+									"type": "file",
+									"src": [
+										"/C:/Users/krishan/Pictures/Download/553439.jpg",
+										"/C:/Users/krishan/Pictures/Download/nature9.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://34.123.110.47/uploadPhoto/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"123",
+								"110",
+								"47"
+							],
+							"path": [
+								"uploadPhoto",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPhotos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getUserphoto(imageType:\"Photo\"){\r\n        edges{\r\n            node{\r\n                id\r\n                imageType\r\n                photofile\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "UpdateProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation  {\r\n    updateProduct(\r\n        id: \"UHJvZHVjdFR5cGU6Mw==\"\r\n        productname: \"S20X30\"\r\n        producttype: \"PHOTO\"\r\n        sizeType:\"U2l6ZVR5cGVUeXBlOjE=\"\r\n        paperType:\"UGFwZXJUeXBlVHlwZTox\"\r\n        unitprice:2.0\r\n    ){\r\n        details{\r\n            id\r\n            productname\r\n            producttype\r\n            unitprice\r\n            sizeType{\r\n                id\r\n                name\r\n            }\r\n            paperType{\r\n                id\r\n                name\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddProductMutation {\r\n    addProduct(input:{\r\n        productname:\"A4\"\r\n        producttype:\"PHOTO\"\r\n        unitprice:2.0\r\n        sizeType:\"U2l6ZVR5cGVUeXBlOjE=\"\r\n        paperType:\"UGFwZXJUeXBlVHlwZTox\"\r\n    }){\r\n        details{\r\n            id\r\n            productname\r\n            producttype\r\n            unitprice\r\n            sizeType{\r\n                id\r\n                name\r\n            }\r\n            paperType{\r\n                id\r\n                name\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n    getPoducts(producttype:\"PHOTO\"){\r\n        edges{\r\n            node{\r\n                id\r\n                productname\r\n                producttype\r\n                unitprice\r\n                sizeType{\r\n                  id\r\n                  name\r\n                }\r\n                paperType{\r\n                  id\r\n                  name\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": []
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjAxNzI3MTEyLCJvcmlnSWF0IjoxNjAxNzI2ODEyfQ.YWBS6puZFFbiKRsgo6LyEy3N8pfoVP6PI3_CoTcEbaA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\n    signUp(input:{\n        name:\"Krisan Kumar\"\n        email:\"paliwal.83@gmail.com\"\n        password:\"admin@123\"\n        phone: \"+91-9717071507\"\n    }){\n        details{\n            id\n            firstName\n            email\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/apis/graphql/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"apis",
+								"graphql",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\n    users{\n        id\n        username\n        firstName\n        lastName\n        email\n        password\n        isActive\n        isStaff\n        isSuperuser\n        lastLogin\n        dateJoined\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

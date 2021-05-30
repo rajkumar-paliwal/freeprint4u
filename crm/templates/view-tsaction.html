@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  {% include "common/header.html" %} 
+   <body class="hold-transition sidebar-mini">
+    <!--preloader-->
+      <div id="preloader">
+         <div id="status"></div>
+      </div>
+      <!-- Site wrapper -->
+      <div class="wrapper">
+         {% include "common/header_top.html" %}  
+         <!-- =============================================== -->
+         <!-- Left side column. contains the sidebar -->
+         {% include "common/menu.html" %}         
+         <!-- =============================================== -->
+         <!-- Content Wrapper. Contains page content -->
+         <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+               <div class="header-icon">
+                  <i class="fa fa-money"></i>
+               </div>
+               <div class="header-title">
+                  <h1>Transaction</h1>
+                  <small>Transaction List</small>
+               </div>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+               <div class="row">
+                     <div class="col-lg-12 pinpin">
+                           <div class="card lobicard" id="lobicard-custom-controls" data-sortable="true">
+                               <div class="card-header">
+                                   <div class="card-title custom_title">
+                                       <h4>Transaction list</h4>
+                                   </div>
+                               </div>
+                               <div class="card-body">
+                                    <div class="btn-group">
+                                       <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                                       <button class="btn btn-exp btn-sm" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Table Data</button>
+                                       <ul class="dropdown-menu exp-drop" role="menu">
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false'});"> 
+                                             <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON</a>
+                                          </li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});">
+                                             <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON (ignoreColumn)</a>
+                                          </li>
+                                          <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'json',escape:'true'});">
+                                             <img src="assets/dist/img/json.png" width="24" alt="logo"> JSON (with Escape)</a>
+                                          </li>
+                                         <li class="dropdown-divider"></li>
+                                          <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'xml',escape:'false'});">
+                                             <img src="assets/dist/img/xml.png" width="24" alt="logo"> XML</a>
+                                          </li>
+                                          <li><a href="#" onclick="$('#dataTableExample1').tableExport({type:'sql'});"> 
+                                             <img src="assets/dist/img/sql.png" width="24" alt="logo"> SQL</a>
+                                          </li>
+                                         <li class="dropdown-divider"></li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'csv',escape:'false'});"> 
+                                             <img src="assets/dist/img/csv.png" width="24" alt="logo"> CSV</a>
+                                          </li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'txt',escape:'false'});"> 
+                                             <img src="assets/dist/img/txt.png" width="24" alt="logo"> TXT</a>
+                                          </li>
+                                         <li class="dropdown-divider"></li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'excel',escape:'false'});"> 
+                                             <img src="assets/dist/img/xls.png" width="24" alt="logo"> XLS</a>
+                                          </li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'doc',escape:'false'});">
+                                             <img src="assets/dist/img/word.png" width="24" alt="logo"> Word</a>
+                                          </li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'powerpoint',escape:'false'});"> 
+                                             <img src="assets/dist/img/ppt.png" width="24" alt="logo"> PowerPoint</a>
+                                          </li>
+                                          <li class="dropdown-divider"></li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'png',escape:'false'});"> 
+                                             <img src="assets/dist/img/png.png" width="24" alt="logo"> PNG</a>
+                                          </li>
+                                          <li>
+                                             <a href="#" onclick="$('#dataTableExample1').tableExport({type:'pdf',pdfFontSize:'7',escape:'false'});"> 
+                                             <img src="assets/dist/img/pdf.png" width="24" alt="logo"> PDF</a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                    <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                                    <div class="table-responsive">
+                                       <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
+                                          <thead class="back_table_color">
+                                             <tr class="info">
+                                                   <th>Order id</th>
+                                                   <th>paymentmethod</th>
+                                                   <th>gatewaytransactionid</th>
+                                                   <th>transactionstatus</th>
+                                                   <th>transactiondate</th>
+                                                   <th>lastmodifieddate</th>
+                                                <th>Credit</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody>
+                                              {% for transaction in transactions %}
+                                             <tr>
+                                                   <td>{{transaction.order_id}}</td>                                 
+                                                   <td>{{transaction.paymentmethod}}</td>
+                                                   <td>{{transaction.gatewaytransactionid}}</td>
+                                                   <td>{{transaction.transactionstatus}}</td>
+                                                   <td>{{transaction.transactiondate}}</td>
+                                                   <td>{{transaction.lastmodifieddate}}</td>
+                                                   <td>{{transaction.order_id}}</td>                                
+                                             </tr>
+                                              {% endfor %}
+                                              <!---
+                                             <tr>
+                                                <td>15-10-2017</td>
+                                                <td>Brac Bank  S.A.</td>
+                                                <td>Expense</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>Smith rats</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>Manage</td>
+                                             </tr>
+                                             <tr>
+                                                <td>15-10-2017</td>
+                                                <td>Bangladesh Bank AB </td>
+                                                <td>Expense</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>Smith rats</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>Manage</td>
+                                             </tr>
+                                             <tr>
+                                                <td>15-10-2017</td>
+                                                <td>Wells Fargo</td>
+                                                <td>Income</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>Smith rats</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>Manage</td>
+                                             </tr>
+                                             <tr>
+                                                <td>05-06-2017</td>
+                                                <td>CREDIT S.A. roben salas</td>
+                                                <td>Income</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>Smith rats</td>
+                                                <td>$ 1,307.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>$ 0.00</td>
+                                                <td>Manage</td>
+                                             </tr> --->
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+                           </div>
+                       </div>
+                  
+               </div>
+            </section>
+            <!-- /.content -->
+         </div>
+         <!-- /.content-wrapper -->
+         <footer class="main-footer">
+            <strong>Copyright &copy; 2016-2017 <a href="#">thememinister</a>.</strong> All rights reserved.
+         </footer>
+      </div>
+      <!-- ./wrapper -->
+      <!-- Start Core Plugins===================================================================-->
+         {% include "common/footer.html" %}
+      <!-- End Theme label Script ===========================================================-->
+
+   </body>
+</html>
+

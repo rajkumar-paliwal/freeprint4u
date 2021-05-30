@@ -1,0 +1,265 @@
+{% load static %}
+<header class="main-header">
+<a href="/crm/index/" class="logo">
+     <!-- Logo -->
+     <span class="logo-mini">
+     <img src="{% static 'assets/dist/img/mini-logo.png' %}" alt="">
+     </span>
+     <span class="logo-lg">
+     <img src="{% static 'assets/dist/img/logo.png' %}" alt="">
+     </span>
+  </a>
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-expand py-0">
+     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <!-- Sidebar toggle button-->
+        <span class="sr-only">Toggle navigation</span>
+        <span class="pe-7s-angle-left-circle"></span>
+     </a>
+     <!-- searchbar-->
+     <a href="#search"><span class="pe-7s-search"></span></a>
+     <div id="search">
+        <button type="button" class="close">×</button>
+        <form>
+           <input type="search" value="" placeholder="Search.." />
+           <button type="submit" class="btn btn-add">Search...</button>
+        </form>
+     </div>
+     <div class="collapse navbar-collapse navbar-custom-menu" >
+       <ul class="navbar-nav ml-auto">
+        <!-- Orders -->
+         <li class="nav-item dropdown messages-menu">
+           <a class="nav-link admin-notification" href="#"  role="button" data-toggle="dropdown">
+              <i class="pe-7s-cart"></i>
+              <span class="label bg-primary">5</span>
+           </a>
+           <div class="dropdown-menu drop_drop custom_drop_scroll" >
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/basketball-jersey.png' %}" class="img-thumbnail" alt="User Image">
+                   </div>
+                   <div class="right_item">
+                       <h4>polo shirt</h4>
+                       <p><strong>total item:</strong> 21
+                       </p>
+                   </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/shirt.png' %}" class="img-thumbnail" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Kits</h4>
+                       <p><strong>total item:</strong> 11
+                       </p>
+                   </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/football.png' %}" class="img-thumbnail" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Football</h4>
+                       <p><strong>total item:</strong> 16
+                       </p>
+                   </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/shoe.png' %}" class="img-thumbnail" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Sports sheos</h4>
+                       <p><strong>total item:</strong> 10
+                       </p>
+                   </div>
+                </div>
+             </a>
+           </div>
+         </li>
+        <!-- Messages -->
+         <li class="nav-item dropdown messages-menu">
+           <a class="nav-link admin-notification" href="#"  role="button" data-toggle="dropdown">
+              <i class="pe-7s-mail"></i>
+              <span class="label bg-success">5</span>
+           </a>
+           <div class="dropdown-menu drop_drop custom_drop_scroll" >
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/avatar.png' %}"  class="rounded-circle" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Ronaldo</h4>
+                       <p>Please oreder 10 pices of kits..</p>
+                       <span class="badge badge-success badge-massege"><small>15 hours ago</small>
+                       </span>
+                   </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item pull-left">
+                       <img src="{% static 'assets/dist/img/avatar2.png' %}"  class="rounded-circle" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Leo messi</h4>
+                       <p>Please oreder 10 pices of Sheos..</p>
+                       <span class="badge badge-info badge-massege"><small>6 days ago</small>
+                       </span>   
+                   </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menue">
+                   <div class="left_item">
+                       <img src="{% static 'assets/dist/img/avatar3.png' %}"  class="rounded-circle" alt="User Image"/>
+                   </div>
+                   <div class="right_item">
+                       <h4>Modric</h4>
+                       <p>Please oreder 6 pices of bats..</p>
+                       <span class="badge badge-info badge-massege"><small>1 hour ago</small>
+                       </span>
+                   </div>
+                </div>
+             </a>
+           </div>
+         </li>
+        <!-- Notifications -->
+         <li class="nav-item dropdown notifications-menu">
+           <a class="nav-link admin-notification" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="pe-7s-bell"></i>
+              <span class="label bg-warning">5</span>
+           </a>
+           <div class="dropdown-menu drop_drops custom_drop_scroll" >
+             <a class="dropdown-item" href="#">
+                <div class="menues">
+                    <p>
+                    <i class="fa fa-dot-circle-o color-red"></i>
+                    Change Your font style</p>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+              <div class="menues">
+                 <p>
+                 <i class="fa fa-dot-circle-o color-red"></i>
+                 check the system ststus..</p>
+             </div>
+             </a>
+             <a class="dropdown-item" href="#">
+              <div class="menues">
+                 <p>
+                 <i class="fa fa-dot-circle-o color-red"></i>
+                 Add more admin...</p>
+             </div>
+             </a>
+             <a class="dropdown-item" href="#">
+              <div class="menues">
+                 <p>
+                 <i class="fa fa-dot-circle-o color-red"></i>
+                 Add more clients and order</p>
+             </div>
+             </a>
+             <a class="dropdown-item" href="#">
+              <div class="menues">
+                 <p>
+                 <i class="fa fa-dot-circle-o color-red"></i>
+                 Add more admin...</p>
+             </div>
+             </a>
+             <a class="dropdown-item" href="#">
+              <div class="menues">
+                 <p>
+                 <i class="fa fa-dot-circle-o color-red"></i>
+                 Add more clients and order</p>
+             </div>
+             </a>
+           </div>
+         </li>
+        <!-- Tasks -->
+         <li class="nav-item dropdown tasks-menu">
+           <a class="nav-link admin-notification" href="#"  role="button" data-toggle="dropdown">
+              <i class="pe-7s-note2"></i>
+              <span class="label bg-danger">5</span>
+           </a> 
+           <div class="dropdown-menu drop_dropr custom_drop_scroll" >
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> Theme color should be <span><span class="label label-success float-right">50%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> Fix Error and bugs <span><span class="label label-warning float-right">90%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> Sidebar color change <span><span class="label label-danger float-right">80%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> font-family should be  <span><span class="label label-info float-right">30%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> Fix the database Error <span><span class="label label-success float-right">60%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+             <a class="dropdown-item" href="#">
+                <div class="menuers">
+                    <div class="single_menuers_item">
+                       <h3><i class="fa fa-check-circle"></i> data table data missing <span><span class="label label-info float-right">20%</span></span></h3>
+                    </div>
+                </div>
+             </a>
+           </div>
+         </li>
+        <!-- Help -->
+         <li class="nav-item dropdown  dropdown-help">
+           <a class="nav-link hidden_hidden" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="pe-7s-settings"></i></a>
+           <div class="dropdown-menu drop_down" >
+              <div class="menus">
+                 <a class="dropdown-item" href="#"> <i class="fa fa-line-chart"></i> Networking</a>
+                 <a class="dropdown-item" href="#"><i class="fa fa fa-bullhorn"></i> Lan settings</a>
+                 <a class="dropdown-item" href="#"><i class="fa fa-bar-chart"></i> Settings</a>
+                 <a class="dropdown-item" href="#"><i class="fa fa-wifi"></i> wifi</a>
+              </div>
+           </div>
+         </li>
+        <!-- User -->
+         <li class="nav-item dropdown dropdown-user">
+           <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img src="{% static 'assets/dist/img/avatar5.png' %}" class="rounded-circle" alt="user"></a>
+           <div class="dropdown-menu drop_down" >
+                <div class="menus">
+                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> User Profile</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-inbox"></i> Inbox</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Signout</a>
+                </div>
+           </div>
+         </li>
+       </ul>
+     </div>
+ </nav>
+</header>
